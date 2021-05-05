@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using GolfOuting.Services;
 
 namespace GolfOuting
 {
@@ -28,7 +30,12 @@ namespace GolfOuting
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+
+            services.AddDbContext<GolfOuting.Data.GolfOutingContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("GolfOuting")));
+
             services.AddSingleton<WeatherForecastService>();
+            services.AddScoped<IGolfOutingService, GolfOutingService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
