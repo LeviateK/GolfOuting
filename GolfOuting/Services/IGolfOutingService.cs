@@ -332,64 +332,68 @@ namespace GolfOuting.Services
                 completeScorecards.Add(completeScorecard);
                 
             }
-            int hole1LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole1Score);
-            int hole1LowScoreCount = completeScorecards.Count(s => s.Hole1Score == hole1LowScore && s.InSkins);
 
-            int hole2LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole2Score);
-            int hole2LowScoreCount = completeScorecards.Count(s => s.Hole2Score == hole2LowScore && s.InSkins);
+            if (completeScorecards.Count(s=>s.InSkins) > 0)
+            {
 
-            int hole3LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole3Score);
-            int hole3LowScoreCount = completeScorecards.Count(s => s.Hole3Score == hole3LowScore && s.InSkins);
+                int hole1LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole1Score);
+                int hole1LowScoreCount = completeScorecards.Count(s => s.Hole1Score == hole1LowScore && s.InSkins);
 
-            int hole4LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole4Score);
-            int hole4LowScoreCount = completeScorecards.Count(s => s.Hole4Score == hole4LowScore && s.InSkins);
+                int hole2LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole2Score);
+                int hole2LowScoreCount = completeScorecards.Count(s => s.Hole2Score == hole2LowScore && s.InSkins);
 
-            int hole5LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole5Score);
-            int hole5LowScoreCount = completeScorecards.Count(s => s.Hole5Score == hole5LowScore && s.InSkins);
+                int hole3LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole3Score);
+                int hole3LowScoreCount = completeScorecards.Count(s => s.Hole3Score == hole3LowScore && s.InSkins);
 
-            int hole6LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole6Score);
-            int hole6LowScoreCount = completeScorecards.Count(s => s.Hole6Score == hole6LowScore && s.InSkins);
+                int hole4LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole4Score);
+                int hole4LowScoreCount = completeScorecards.Count(s => s.Hole4Score == hole4LowScore && s.InSkins);
 
-            int hole7LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole7Score);
-            int hole7LowScoreCount = completeScorecards.Count(s => s.Hole7Score == hole7LowScore && s.InSkins);
+                int hole5LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole5Score);
+                int hole5LowScoreCount = completeScorecards.Count(s => s.Hole5Score == hole5LowScore && s.InSkins);
 
-            int hole8LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole8Score);
-            int hole8LowScoreCount = completeScorecards.Count(s => s.Hole8Score == hole8LowScore && s.InSkins);
+                int hole6LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole6Score);
+                int hole6LowScoreCount = completeScorecards.Count(s => s.Hole6Score == hole6LowScore && s.InSkins);
 
-            int hole9LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole9Score);
-            int hole9LowScoreCount = completeScorecards.Count(s => s.Hole9Score == hole9LowScore && s.InSkins);
+                int hole7LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole7Score);
+                int hole7LowScoreCount = completeScorecards.Count(s => s.Hole7Score == hole7LowScore && s.InSkins);
 
-            int hole10LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole10Score);
-            int hole10LowScoreCount = completeScorecards.Count(s => s.Hole10Score == hole10LowScore && s.InSkins);
+                int hole8LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole8Score);
+                int hole8LowScoreCount = completeScorecards.Count(s => s.Hole8Score == hole8LowScore && s.InSkins);
 
-            int hole11LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole11Score);
-            int hole11LowScoreCount = completeScorecards.Count(s => s.Hole11Score == hole11LowScore && s.InSkins);
+                int hole9LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole9Score);
+                int hole9LowScoreCount = completeScorecards.Count(s => s.Hole9Score == hole9LowScore && s.InSkins);
 
-            int hole12LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole12Score);
-            int hole12LowScoreCount = completeScorecards.Count(s => s.Hole12Score == hole12LowScore && s.InSkins);
+                int hole10LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole10Score);
+                int hole10LowScoreCount = completeScorecards.Count(s => s.Hole10Score == hole10LowScore && s.InSkins);
 
-            int hole13LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole13Score);
-            int hole13LowScoreCount = completeScorecards.Count(s => s.Hole13Score == hole13LowScore && s.InSkins);
+                int hole11LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole11Score);
+                int hole11LowScoreCount = completeScorecards.Count(s => s.Hole11Score == hole11LowScore && s.InSkins);
 
-            int hole14LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole14Score);
-            int hole14LowScoreCount = completeScorecards.Count(s => s.Hole14Score == hole14LowScore && s.InSkins);
+                int hole12LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole12Score);
+                int hole12LowScoreCount = completeScorecards.Count(s => s.Hole12Score == hole12LowScore && s.InSkins);
 
-            int hole15LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole15Score);
-            int hole15LowScoreCount = completeScorecards.Count(s => s.Hole15Score == hole15LowScore && s.InSkins);
+                int hole13LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole13Score);
+                int hole13LowScoreCount = completeScorecards.Count(s => s.Hole13Score == hole13LowScore && s.InSkins);
 
-            int hole16LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole16Score);
-            int hole16LowScoreCount = completeScorecards.Count(s => s.Hole16Score == hole16LowScore && s.InSkins);
+                int hole14LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole14Score);
+                int hole14LowScoreCount = completeScorecards.Count(s => s.Hole14Score == hole14LowScore && s.InSkins);
 
-            int hole17LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole17Score);
-            int hole17LowScoreCount = completeScorecards.Count(s => s.Hole17Score == hole17LowScore && s.InSkins);
+                int hole15LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole15Score);
+                int hole15LowScoreCount = completeScorecards.Count(s => s.Hole15Score == hole15LowScore && s.InSkins);
 
-            int hole18LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole18Score);
-            int hole18LowScoreCount = completeScorecards.Count(s => s.Hole18Score == hole18LowScore && s.InSkins);
-            
+                int hole16LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole16Score);
+                int hole16LowScoreCount = completeScorecards.Count(s => s.Hole16Score == hole16LowScore && s.InSkins);
+
+                int hole17LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole17Score);
+                int hole17LowScoreCount = completeScorecards.Count(s => s.Hole17Score == hole17LowScore && s.InSkins);
+
+                int hole18LowScore = completeScorecards.Where(s => s.InSkins).Min(s => s.Hole18Score);
+                int hole18LowScoreCount = completeScorecards.Count(s => s.Hole18Score == hole18LowScore && s.InSkins);
 
 
-            // we got skins, loop through and update
-            foreach (CompleteScorecard cs1 in completeScorecards)
+
+                // we got skins, loop through and update
+                foreach (CompleteScorecard cs1 in completeScorecards)
                 {
                     if (cs1.Hole1Score == hole1LowScore && hole1LowScoreCount == 1 && cs1.InSkins)
                     {
@@ -464,6 +468,7 @@ namespace GolfOuting.Services
                         cs1.Hole18Skin = true;
                     }
                 }
+            }
             return completeScorecards;
 
         }

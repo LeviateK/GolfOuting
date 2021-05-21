@@ -2,7 +2,7 @@
 @using GolfOuting.Models
 @using GolfOuting.Services
 @inject IGolfOutingService GolfOutingService
-<h2>Outings</h2>
+<h2>Team Players</h2>
 <hr />
 @if (teamPlayers == null)
 {
@@ -12,34 +12,37 @@
 }
 else
 {
-    <div class="container-fluid">
-        <table id="example" class="table table-striped table-responsive">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Team Name</th>
-                    <th>Player Name</th>
-                    <th>Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (TeamPlayer teamPlayer in teamPlayers)
-                {
-                    <tr>
-                        <td>@teamPlayer.Team.TeamName</td>
-                        <td>@teamPlayer.Player.DisplayName</td>
-
-                        <td><input type="button" class="btn btn-outline-dark badge-pill rounded-pill" @onclick="(() => PrepareForEdit(teamPlayer))" data-toggle="modal" data-target="#teamPlayerDetailsModal" value="Edit" /></td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        <div>
-            <input type="button" data-toggle="modal" data-target="#teamPlayerDetailsModal" class="btn btn-light badge-pill rounded-pill" value="Add New" @onclick="(() => InitializeTeamPlayerObject())" />
-        </div>
-        <TeamPlayerDetails TeamPlayer="teamPlayer" Teams="teams" Players="players" DataChanged="@DataChanged">
-                <CustomHeader>@customHeader</CustomHeader>
-            </TeamPlayerDetails>
+<div class="container-fluid">
+    <div>
+        <input type="button" data-toggle="modal" data-target="#teamPlayerDetailsModal" class="btn btn-light badge-pill rounded-pill" value="Add New" @onclick="(() => InitializeTeamPlayerObject())" />
     </div>
+    <table id="example" class="table table-striped table-responsive">
+        <thead class="thead-dark">
+            <tr>
+                <th>Team Name</th>
+                <th>Player Name</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (TeamPlayer teamPlayer in teamPlayers)
+            {
+                <tr>
+                    <td>@teamPlayer.Team.TeamName</td>
+                    <td>@teamPlayer.Player.DisplayName</td>
+
+                    <td><input type="button" class="btn btn-outline-dark badge-pill rounded-pill" @onclick="(() => PrepareForEdit(teamPlayer))" data-toggle="modal" data-target="#teamPlayerDetailsModal" value="Edit" /></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div>
+        <input type="button" data-toggle="modal" data-target="#teamPlayerDetailsModal" class="btn btn-light badge-pill rounded-pill" value="Add New" @onclick="(() => InitializeTeamPlayerObject())" />
+    </div>
+    <TeamPlayerDetails TeamPlayer="teamPlayer" Teams="teams" Players="players" DataChanged="@DataChanged">
+        <CustomHeader>@customHeader</CustomHeader>
+    </TeamPlayerDetails>
+</div>
 }
 
 
