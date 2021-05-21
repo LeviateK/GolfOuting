@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ZPC_Blazor.Util
+namespace GolfOuting.Util
 {
     public class InputSelectNumber<T> : InputSelect<T>
     {

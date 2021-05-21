@@ -83,7 +83,7 @@ using GolfOuting.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 38 "C:\Users\Capta\source\repos\GolfOuting\GolfOuting\Shared\NavMenu.razor"
+#line 48 "C:\Users\Capta\source\repos\GolfOuting\GolfOuting\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

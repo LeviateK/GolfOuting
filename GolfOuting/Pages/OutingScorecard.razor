@@ -1,0 +1,203 @@
+﻿@page "/outingscorecard/{outingid}"
+@using GolfOuting.Models
+@using GolfOuting.Services
+@inject IGolfOutingService GolfOutingService
+<h2>@scorecardHeader</h2>
+<hr />
+@if (holeScores == null && completeScorecards == null && holes == null)
+{
+    <div class="progress" style="height: 40px;">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%; background-color:#393939; color:white">Loading...</div>
+    </div>
+}
+else
+{
+    <div class="container-fluid">
+        <table id="example" class="table table-striped table-responsive">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Hole</th>
+                    @foreach (Hole hole1 in holes)
+                    {
+                        <th>@hole1.HoleNumber</th>
+                    }
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <th class="bg-primary">Men's Yardage</th>
+                    @foreach (Hole hole1 in holes)
+                    {
+                        <th class="bg-primary">@hole1.MenYardage</th>
+                    }
+                    <th class="bg-primary">@holes.Sum(h => h.MenYardage)</th>
+                </tr>
+                <tr>
+                    <th class="bg-success">Women's Yardage</th>
+                    @foreach (Hole hole1 in holes)
+                    {
+                        <th class="bg-success">@hole1.WomenYardage</th>
+                    }
+                    <th class="bg-success">@holes.Sum(h => h.WomenYardage)</th>
+                </tr>
+                <tr>
+                    <th class="bg-secondary">Par</th>
+                    @foreach (Hole hole1 in holes)
+                    {
+                        <th class="bg-secondary">@hole1.Par</th>
+                    }
+                    <th class="bg-secondary">@holes.Sum(h => h.Par)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (CompleteScorecard completeScorecard in completeScorecards.OrderBy(c=>c.RoundScore))
+                {
+                <tr>
+                    <td>
+                        @completeScorecard.TeamName
+                        @if (completeScorecard.InSkins)
+                        {
+                            <div class="badge badge-pill badge-success">Skins</div>
+                        }
+                    </td>
+                    @if(completeScorecard.Hole1Skin)
+                    {<td class="badge-success">@completeScorecard.Hole1Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole1Score</td>}
+                    
+                    @if(completeScorecard.Hole2Skin)
+                    {<td class="badge-success">@completeScorecard.Hole2Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole2Score</td>}
+
+
+                    @if(completeScorecard.Hole3Skin)
+                    {<td class="badge-success">@completeScorecard.Hole3Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole3Score</td>}
+
+
+                    @if(completeScorecard.Hole4Skin)
+                    {<td class="badge-success">@completeScorecard.Hole4Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole4Score</td>}
+
+
+                    @if(completeScorecard.Hole5Skin)
+                    {<td class="badge-success">@completeScorecard.Hole5Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole5Score</td>}
+
+
+                    @if(completeScorecard.Hole6Skin)
+                    {<td class="badge-success">@completeScorecard.Hole6Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole6Score</td>}
+
+
+                    @if(completeScorecard.Hole7Skin)
+                    {<td class="badge-success">@completeScorecard.Hole7Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole7Score</td>}
+
+                    @if(completeScorecard.Hole8Skin)
+                    {<td class="badge-success">@completeScorecard.Hole8Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole8Score</td>}
+                    
+                    @if(completeScorecard.Hole9Skin)
+                    {<td class="badge-success">@completeScorecard.Hole9Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole9Score</td>}
+                    
+
+                    @if(completeScorecard.Hole10Skin)
+                    {<td class="badge-success">@completeScorecard.Hole10Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole10Score</td>}
+
+                    @if(completeScorecard.Hole11Skin)
+                    {<td class="badge-success">@completeScorecard.Hole11Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole11Score</td>}
+                    
+                    @if(completeScorecard.Hole12Skin)
+                    {<td class="badge-success">@completeScorecard.Hole12Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole12Score</td>}
+
+
+                    @if(completeScorecard.Hole13Skin)
+                    {<td class="badge-success">@completeScorecard.Hole13Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole13Score</td>}
+
+
+                    @if(completeScorecard.Hole14Skin)
+                    {<td class="badge-success">@completeScorecard.Hole14Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole14Score</td>}
+
+
+                    @if(completeScorecard.Hole15Skin)
+                    {<td class="badge-success">@completeScorecard.Hole15Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole15Score</td>}
+
+
+                    @if(completeScorecard.Hole16Skin)
+                    {<td class="badge-success">@completeScorecard.Hole16Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole16Score</td>}
+
+
+                    @if(completeScorecard.Hole17Skin)
+                    {<td class="badge-success">@completeScorecard.Hole17Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole17Score</td>}
+
+                    @if(completeScorecard.Hole18Skin)
+                    {<td class="badge-success">@completeScorecard.Hole18Score</td>}
+                     else
+                    {<td>@completeScorecard.Hole18Score</td>}
+                    
+
+                    <td>@completeScorecard.RoundScore</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+
+
+@code {
+
+    List<HoleScore> holeScores;
+    List<CompleteScorecard> completeScorecards;
+    List<Hole> holes;
+    HoleScore holeScore = new HoleScore();
+    string customHeader = string.Empty;
+    string scorecardHeader { get; set; }
+
+    [Parameter]
+    public string OutingID { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var allHoleScores = await GolfOutingService.GetHoleScoresAsync();
+
+        holeScores = allHoleScores.Where(h => h.OutingTeam.OutingID == Convert.ToInt32(OutingID)).OrderBy(h => h.Hole.HoleNumber).ToList();
+        int year = holeScores.FirstOrDefault().OutingTeam.Outing.Year.YearValue;
+        string outingName = holeScores.FirstOrDefault().OutingTeam.Outing.OutingName;
+        string courseName = holeScores.FirstOrDefault().Hole.Course.CourseName;
+
+        holes = holeScores.Select(h => h.Hole).Distinct().ToList();
+        scorecardHeader = string.Format("Complete Scorecard : {0} {1} @ {2}", year, outingName, courseName);
+        completeScorecards = await GolfOutingService.GenerateCompleteScorecard(Convert.ToInt32(OutingID));
+
+    }
+
+}
+
+ 

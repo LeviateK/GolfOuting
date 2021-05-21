@@ -19,7 +19,6 @@ namespace GolfOuting.Models
         [ForeignKey("TeamID")]
         public virtual Team Team { get; set; }
 
-        [ForeignKey("OutingTeamID")]
-        public virtual HoleScore HoleScore { get; set; }
+        public List<HoleScore> HoleScores { get; set; }
     }
 }

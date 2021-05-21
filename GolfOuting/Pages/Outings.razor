@@ -24,11 +24,13 @@ else
                 </tr>
             </thead>
             <tbody>
-                @foreach (Outing outing in outings)
+                @foreach (Outing outing in outings.OrderByDescending(o=>o.Year.YearValue))
                 {
                 <tr>
                     <td>@outing.Year.YearValue</td>
-                    <td>@outing.OutingName</td>
+                    <td>@outing.OutingName
+                    <br />
+                        <a href="outingscorecard/@outing.OutingID">Complete Scorecard</a></td>
                     <td>@outing.Course.CourseName</td>
                     <td>
                         @foreach (OutingTeam outingTeam in outing.OutingTeams.OrderBy(o=>o.Team.PairingOrder))
@@ -36,25 +38,45 @@ else
                             int c = 0;
                             @if (c % 2 == 0)
                             {
-                                <div class="alert alert-dark">
-                                    <div class="badge badge-dark">@outingTeam.Team.TeamName</div>
-                                    <span class="badge badge-pill badge-secondary">Pairing Order: @outingTeam.Team.PairingOrder</span>
-                                    <ul>
-                                        @foreach (TeamPlayer teamPlayer in outingTeam.Team.TeamPlayers.OrderBy(p=>p.Player.LastName))
-                                        {
-                                            <li>@teamPlayer.Player.DisplayName</li>
-                                        }
-                                    </ul>
-                                    @if(outingTeam.Team.Mulligans)
-                                    {
-                                         <div class=" badge badge-pill badge-warning">Mulligans</div>
-                                    }
-                                     @if(outingTeam.Team.Skins)
-                                    {
-                                         <div class=" badge badge-pill badge-success">Skins</div>
-                                    }
+                        <div class="alert alert-dark">
+                            <div class="badge badge-dark">@outingTeam.Team.TeamName</div>
+                            <span class="badge badge-pill badge-secondary">Pairing Order: @outingTeam.Team.PairingOrder</span>
+                            <ul>
+                                @foreach (TeamPlayer teamPlayer in outingTeam.Team.TeamPlayers.OrderBy(p => p.Player.LastName))
+                                {
+                                    <li>@teamPlayer.Player.DisplayName</li>
+                                }
+                            </ul>
+                            @if (outingTeam.Team.Mulligans || outingTeam.Team.Skins)
+                            {
+                                @if (outingTeam.Team.Mulligans)
+                                {
+                                    <div class=" badge badge-pill badge-primary">Mulligans</div>
+                                }
+                                @if (outingTeam.Team.Skins)
+                                {
+                                    <div class=" badge badge-pill badge-success">Skins</div>
+                                }
+                                <br />
+                            }
 
-                                </div>
+                            @if (outingTeam.HoleScores.Count() == 0)
+                            {
+
+                                <button class="badge badge-danger" @onclick="(() => GolfOutingService.GenerateEmptyScorecard(outing.Course, outingTeam))">
+                                    Generate Scorecard
+                                </button>
+                            }
+                            else
+                            {
+                                <div class=" badge badge-pill badge-primary">Front Nine: @outingTeam.HoleScores.Where(h => h.Hole.HoleNumber >= 1 && h.Hole.HoleNumber <= 9).Sum(h => h.Score)</div>
+                                <div class=" badge badge-pill badge-secondary">Back Nine: @outingTeam.HoleScores.Where(h => h.Hole.HoleNumber >= 10 && h.Hole.HoleNumber <= 18).Sum(h => h.Score)</div>
+                                <div class=" badge badge-pill badge-dark">Total: @outingTeam.HoleScores.Sum(h => h.Score)</div>
+                                <br />
+                                <a href="scorecard/@outingTeam.OutingTeamID">Scorecard</a>
+                            }                            
+                            
+                        </div>
                             }
                             else
                             {

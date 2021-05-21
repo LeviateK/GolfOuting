@@ -18,7 +18,7 @@ namespace GolfOuting.Models
         {
             get
             {
-                return string.Format("{0}, {1}", LastName, FirstName);
+                return string.Format("{0} {1}", FirstName, LastName);
             }
         }
         // Linked Tables

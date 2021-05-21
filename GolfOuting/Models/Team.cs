@@ -13,7 +13,6 @@ namespace GolfOuting.Models
         public bool Skins { get; set; }
         public bool Mulligans { get; set; }
 
-
         public List<TeamPlayer> TeamPlayers { get; set;}
 
         public List<OutingTeam> OutingTeams { get; set; }

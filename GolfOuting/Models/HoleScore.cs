@@ -12,7 +12,6 @@ namespace GolfOuting.Models
         public int OutingTeamID { get; set; }
         public int HoleID { get; set; }
         public int Score { get; set; }
-        public int SkillShotID { get; set; }
         
         // Linked Models
         [ForeignKey("OutingTeamID")]
@@ -21,8 +20,6 @@ namespace GolfOuting.Models
         [ForeignKey("HoleID")]
         public virtual Hole Hole { get; set; }
 
-        [ForeignKey("SkillShotID")]
-        public virtual SkillShot SkillShot { get; set; }
 
 
     }
